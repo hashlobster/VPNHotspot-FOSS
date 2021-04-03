@@ -24,7 +24,7 @@ import be.mygod.vpnhotspot.util.allInterfaceNames
 import be.mygod.vpnhotspot.util.launchUrl
 import be.mygod.vpnhotspot.util.showAllowingStateLoss
 import be.mygod.vpnhotspot.widget.SmartSnackbar
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+//import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
@@ -134,14 +134,14 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
             requireContext().launchUrl("https://github.com/Mygod/VPNHotspot/blob/master/README.md")
             true
         }
-        findPreference<Preference>("misc.donate")!!.setOnPreferenceClickListener {
+        /*findPreference<Preference>("misc.donate")!!.setOnPreferenceClickListener {
             EBegFragment().showAllowingStateLoss(parentFragmentManager, "EBegFragment")
             true
         }
         findPreference<Preference>("misc.licenses")!!.setOnPreferenceClickListener {
             startActivity(Intent(context, OssLicensesMenuActivity::class.java))
             true
-        }
+        }*/
     }
 
     override fun onDisplayPreferenceDialog(preference: Preference) {

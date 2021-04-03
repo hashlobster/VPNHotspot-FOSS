@@ -12,7 +12,7 @@ import be.mygod.vpnhotspot.App.Companion.app
 import be.mygod.vpnhotspot.databinding.FragmentEbegBinding
 import be.mygod.vpnhotspot.util.launchUrl
 import be.mygod.vpnhotspot.widget.SmartSnackbar
-import com.android.billingclient.api.*
+//import com.android.billingclient.api.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -22,7 +22,7 @@ import timber.log.Timber
  * Based on: https://github.com/PrivacyApps/donations/blob/747d36a18433c7e9329691054122a8ad337a62d2/Donations/src/main/java/org/sufficientlysecure/donations/DonationsFragment.java
  */
 class EBegFragment : AppCompatDialogFragment() {
-    companion object : BillingClientStateListener, PurchasesUpdatedListener {
+    /*companion object : BillingClientStateListener, PurchasesUpdatedListener {
         private lateinit var billingClient: BillingClient
 
         fun init() {
@@ -62,10 +62,10 @@ class EBegFragment : AppCompatDialogFragment() {
                 } else Timber.e("onConsumeResponse: ${billingResult.responseCode}")
             }
         }
-    }
+    }*/
 
     private lateinit var binding: FragmentEbegBinding
-    private var skus: List<SkuDetails>? = null
+    /*private var skus: List<SkuDetails>? = null
         set(value) {
             field = value
             binding.donationsGoogleAndroidMarketSpinner.apply {
@@ -74,13 +74,13 @@ class EBegFragment : AppCompatDialogFragment() {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 setAdapter(adapter)
             }
-        }
+        }*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentEbegBinding.inflate(inflater, container, false)
         return binding.root
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dialog!!.setTitle(R.string.settings_misc_donate)
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
@@ -105,5 +105,5 @@ class EBegFragment : AppCompatDialogFragment() {
         if (BuildConfig.DONATIONS) (binding.donationsMoreStub.inflate() as Button).setOnClickListener {
             requireContext().launchUrl("https://mygod.be/donate/")
         }
-    }
+    }*/
 }

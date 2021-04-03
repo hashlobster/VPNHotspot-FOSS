@@ -120,7 +120,7 @@ abstract class IpMonitor {
                     Timber.w(e)
                 }
                 if (destroyed) return@thread
-                app.logEvent("ip_monitor_failure")
+                //app.logEvent("ip_monitor_failure")
             }
             GlobalScope.launch(Dispatchers.IO + worker) {
                 var server: RootServer? = null
@@ -154,7 +154,7 @@ abstract class IpMonitor {
             poll()
             return server
         } catch (e: IOException) {
-            app.logEvent("ip_poll_failure")
+            //app.logEvent("ip_poll_failure")
             Timber.d(e)
         }
         var newServer = server
@@ -167,7 +167,7 @@ abstract class IpMonitor {
             if (lines.any { errorMatcher.containsMatchIn(it) }) throw IOException(result.out)
             processLines(lines.asSequence())
         } catch (e: Exception) {
-            app.logEvent("ip_su_poll_failure") { param("cause", e.message.toString()) }
+            //app.logEvent("ip_su_poll_failure") { param("cause", e.message.toString()) }
             Timber.d(e)
         }
         return if (newServer?.active != false) newServer else {

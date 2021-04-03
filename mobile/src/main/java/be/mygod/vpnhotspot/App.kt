@@ -21,11 +21,11 @@ import be.mygod.vpnhotspot.room.AppDatabase
 import be.mygod.vpnhotspot.root.RootManager
 import be.mygod.vpnhotspot.util.DeviceStorageApp
 import be.mygod.vpnhotspot.util.Services
-import com.google.firebase.analytics.ktx.ParametersBuilder
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.initialize
+//import com.google.firebase.analytics.ktx.ParametersBuilder
+//import com.google.firebase.analytics.ktx.analytics
+//import com.google.firebase.crashlytics.FirebaseCrashlytics
+//import com.google.firebase.ktx.Firebase
+//import com.google.firebase.ktx.initialize
 import kotlinx.coroutines.DEBUG_PROPERTY_NAME
 import kotlinx.coroutines.DEBUG_PROPERTY_VALUE_ON
 import kotlinx.coroutines.GlobalScope
@@ -51,7 +51,7 @@ class App : Application() {
         Services.init { this }
 
         // overhead of debug mode is minimal: https://github.com/Kotlin/kotlinx.coroutines/blob/f528898/docs/debugging.md#debug-mode
-        System.setProperty(DEBUG_PROPERTY_NAME, DEBUG_PROPERTY_VALUE_ON)
+        /*System.setProperty(DEBUG_PROPERTY_NAME, DEBUG_PROPERTY_VALUE_ON)
         Firebase.initialize(deviceStorage)
         when (val codename = Build.VERSION.CODENAME) {
             "REL" -> { }
@@ -75,7 +75,7 @@ class App : Application() {
                     }
                 }
             }
-        })
+        })*/
         ServiceNotification.updateNotificationChannels()
         EmojiCompat.init(FontRequestEmojiCompatConfig(deviceStorage, FontRequest(
                 "com.google.android.gms.fonts",
@@ -88,7 +88,7 @@ class App : Application() {
                 override fun onFailed(throwable: Throwable?) = Timber.d(throwable)
             })
         })
-        EBegFragment.init()
+        //EBegFragment.init()
         if (DhcpWorkaround.shouldEnable) DhcpWorkaround.enable(true)
     }
 
@@ -108,12 +108,12 @@ class App : Application() {
      * This method is used to log "expected" and well-handled errors, i.e. we care less about logs, etc.
      * logException is inappropriate sometimes because it flushes all logs that could be used to investigate other bugs.
      */
-    fun logEvent(@Size(min = 1L, max = 40L) event: String, block: ParametersBuilder.() -> Unit = { }) {
+    /*fun logEvent(@Size(min = 1L, max = 40L) event: String, block: ParametersBuilder.() -> Unit = { }) {
         val builder = ParametersBuilder()
         builder.block()
         Timber.i(if (builder.bundle.isEmpty) event else "$event, extras: ${builder.bundle}")
         Firebase.analytics.logEvent(event, builder.bundle)
-    }
+    }*/
 
     lateinit var deviceStorage: Application
     val english by lazy {
