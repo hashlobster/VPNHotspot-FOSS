@@ -23,7 +23,7 @@ android {
         jvmTarget = javaVersion.toString()
     }
     defaultConfig {
-        applicationId = "be.mygod.vpnhotspot"
+        applicationId = "be.mygod.vpnhotspot_foss"
         minSdkVersion(21)
         targetSdkVersion(targetSdk)
         resConfigs(listOf("it", "ru", "zh-rCN", "zh-rTW"))
@@ -51,7 +51,7 @@ android {
         }
     }
     packagingOptions.exclude("**/*.kotlin_*")
-    flavorDimensions("freedom")
+    /*flavorDimensions("freedom")
     productFlavors {
         create("freedom") {
             dimension("freedom")
@@ -60,7 +60,7 @@ android {
             dimension("freedom")
             buildConfigField("boolean", "DONATIONS", "false")
         }
-    }
+    }*/
     sourceSets.getByName("androidTest") {
         assets.setSrcDirs(assets.srcDirs + files("$projectDir/schemas"))
     }
